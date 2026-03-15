@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background with rounded corners -->
+  <rect width="32" height="32" rx="7" fill="#1a0303"/>
+
+  <!-- Layer 3 (bottom) – most transparent -->
+  <rect x="3.2" y="25.3" width="18.5" height="4.5" rx="1" fill="rgba(255,255,255,0.25)"/>
+
+  <!-- Layer 2 (middle) -->
+  <rect x="3.2" y="15.0" width="21.1" height="4.5" rx="1" fill="rgba(255,255,255,0.45)"/>
+
+  <!-- Layer 1 (top) – red with glow -->
+  <rect x="3.2" y="4.8" width="23.7" height="4.5" rx="1" fill="#ff1a1a"/>
+  <rect x="3.2" y="4.8" width="23.7" height="4.5" rx="1" fill="url(#fav-glow)" opacity="0.6"/>
+
+  <defs>
+    <radialGradient id="fav-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff5050" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ff1a1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

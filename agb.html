@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutzungsbedingungen &amp; Lizenz : ArchPlanner</title>
+  <meta name="description" content="MIT-Lizenz und Nutzungsbedingungen des ArchPlanner Open-Source-Projekts.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-bg: #f5f5f7;
+      --color-bg-alt: #eeeef0;
+      --color-surface: #ffffff;
+      --color-surface-hover: #f8f8fa;
+      --color-surface-bright: #ffffff;
+      --color-border: rgba(0,0,0,.08);
+      --color-border-hover: rgba(0,0,0,.14);
+      --color-border-accent: rgba(255,26,26,.18);
+      --color-accent: #e01515;
+      --color-accent-dim: #c01010;
+      --color-accent-soft: rgba(255,26,26,.06);
+      --color-accent-glow: rgba(255,26,26,.12);
+      --color-text-main: #111113;
+      --color-muted: #555558;
+      --color-faint: #8e8e93;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-main); }
+    ::selection { background: var(--color-accent); color:#fff; }
+    .logo-img { filter:invert(1); }
+    .icon { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  </style>
+</head>
+
+<body class="overflow-x-hidden antialiased leading-relaxed">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center bg-bg/80 backdrop-blur-xl border-b border-border">
+    <div class="w-full max-w-[1100px] mx-auto px-5 md:px-10 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-5 hover:opacity-70 transition-opacity">
+        <span style="font-size:1.25rem;font-weight:900;letter-spacing:-1px;color:#FE0404;">&#128208; ArchPlanner</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="text-sm text-muted hover:text-text-main transition-colors">Zurueck zur Startseite</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- AGB -->
+  <main class="pt-32 pb-24 md:pb-36">
+    <div class="max-w-[780px] mx-auto px-5 md:px-10">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-accent bg-accent-soft px-3 py-1 rounded mb-4">Rechtliches</span>
+      <h1 class="text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-4">Nutzungsbedingungen &amp; Lizenz</h1>
+      <p class="text-sm text-faint mb-10">Stand: M&auml;rz 2026</p>
+
+      <div class="space-y-6 text-sm text-muted leading-relaxed">
+
+        <!-- MIT Lizenz -->
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-lg font-semibold text-text-main mb-4">MIT-Lizenz</h2>
+          <p>ArchPlanner ist freie Open-Source-Software, die unter der <strong>MIT-Lizenz</strong> ver&ouml;ffentlicht wird. Du darfst die Software kostenlos nutzen, kopieren, ver&auml;ndern und verteilen &ndash; auch kommerziell.</p>
+          <div class="mt-4 p-4 rounded-xl font-mono text-xs leading-relaxed whitespace-pre-line" style="background:rgba(0,0,0,.04);border:1px solid var(--color-border);">MIT License
+
+Copyright (c) 2025 ArchPlanner Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</div>
+        </div>
+
+        <!-- Nutzung der Landing-Page -->
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-lg font-semibold text-text-main mb-4">Nutzung der Landing-Page</h2>
+          <p>Diese Landing-Page dient ausschlie&szlig;lich der Information &uuml;ber das ArchPlanner-Projekt. Es wird kein Konto, kein Abonnement und keine Registrierung angeboten.</p>
+          <p class="mt-3">ArchPlanner l&auml;uft vollst&auml;ndig lokal auf dem Rechner des Nutzers. Es werden keine Nutzerdaten auf externen Servern gespeichert.</p>
+
+        <!-- Drittanbieter Gemini -->
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-lg font-semibold text-text-main mb-4">Drittanbieter &ndash; Google Gemini API (optional)</h2>
+          <p>Der optionale KI-Analyse-Modus nutzt die Google Gemini API. Wer die KI-Analyse aktiviert, unterliegt den <a href="https://ai.google.dev/terms" class="text-accent hover:underline" target="_blank" rel="noopener">Google AI-Nutzungsbedingungen</a>. Der API-Key wird ausschlie&szlig;lich lokal im Browser gespeichert und nicht weitergegeben.</p>
+        </div>
+
+        <!-- Haftungsausschluss -->
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-lg font-semibold text-text-main mb-4">Haftungsausschluss</h2>
+          <p>ArchPlanner wird als Open-Source-Software ohne jegliche Gew&auml;hrleistung bereitgestellt (&bdquo;as is&ldquo;). Die Nutzung erfolgt auf eigene Verantwortung. F&uuml;r Sch&auml;den, die durch die Nutzung entstehen, wird keine Haftung &uuml;bernommen.</p>
+          <p class="mt-3">Die durch die App analysierten Architektur-Daten und KI-Empfehlungen sind Orientierungshilfen und ersetzen keine professionelle IT-Beratung.</p>
+        </div>
+
+        <!-- Links -->
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="impressum.html" class="inline-flex items-center gap-2 text-accent hover:underline font-medium text-sm">Impressum</a>
+          <a href="datenschutz.html" class="inline-flex items-center gap-2 text-accent hover:underline font-medium text-sm">Datenschutzerklaerung</a>
+          <a href="cookies.html" class="inline-flex items-center gap-2 text-accent hover:underline font-medium text-sm">Cookie-Richtlinie</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10 py-8 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-faint">
+      <span>&copy; 2025 ArchPlanner. Open Source unter MIT-Lizenz.</span>
+      <span>Entwickelt in Deutschland.</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

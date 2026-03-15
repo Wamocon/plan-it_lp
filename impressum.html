@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum : ArchPlanner</title>
+  <meta name="description" content="Impressum des ArchPlanner Open-Source-Projekts.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-bg: #f5f5f7;
+      --color-bg-alt: #eeeef0;
+      --color-surface: #ffffff;
+      --color-surface-hover: #f8f8fa;
+      --color-surface-bright: #ffffff;
+      --color-border: rgba(0,0,0,.08);
+      --color-border-hover: rgba(0,0,0,.14);
+      --color-border-accent: rgba(255,26,26,.18);
+      --color-accent: #e01515;
+      --color-accent-dim: #c01010;
+      --color-accent-soft: rgba(255,26,26,.06);
+      --color-accent-glow: rgba(255,26,26,.12);
+      --color-text-main: #111113;
+      --color-muted: #555558;
+      --color-faint: #8e8e93;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-main); }
+    .icon { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .logo-img { filter:invert(1); }
+  </style>
+</head>
+
+<body class="overflow-x-hidden antialiased leading-relaxed">
+
+  <svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-file" viewBox="0 0 24 24">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center bg-bg/80 backdrop-blur-xl border-b border-border">
+    <div class="w-full max-w-[1100px] mx-auto px-5 md:px-10 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-5 hover:opacity-70 transition-opacity">
+        <span style="font-size:1.25rem;font-weight:900;letter-spacing:-1px;color:#FE0404;">&#128208; ArchPlanner</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="text-sm text-muted hover:text-text-main transition-colors">Zurueck zur Startseite</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- IMPRESSUM -->
+  <main class="pt-32 pb-24 md:pb-36">
+    <div class="max-w-[780px] mx-auto px-5 md:px-10">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase text-accent bg-accent-soft px-3 py-1 rounded mb-4">Rechtliches</span>
+      <h1 class="text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-8">Impressum</h1>
+      <div class="space-y-6 text-sm text-muted leading-relaxed">
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-lg font-semibold text-text-main mb-4">ArchPlanner</h2>
+          <div class="space-y-2">
+            <p>ArchPlanner ist ein privates Open-Source-Projekt, das unter der MIT-Lizenz ver&ouml;ffentlicht wird.</p>
+            <p>Es handelt sich um kein kommerzielles Angebot. Es wird kein Vertrag oder Abonnement begr&uuml;ndet.</p>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-base font-semibold text-text-main mb-4">Verantwortlich f&uuml;r den Inhalt</h2>
+          <div class="space-y-2">
+            <p>Verantwortlich f&uuml;r den Inhalt gem&auml;&szlig; &sect; 55 Abs. 2 RStV ist der jeweilige Betreiber dieser Landing-Page.</p>
+            <p>Der Quellcode ist &ouml;ffentlich einsehbar und kann frei verwendet, ver&auml;ndert und weitergegeben werden (MIT-Lizenz).</p>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-surface border border-border">
+          <h2 class="text-base font-semibold text-text-main mb-4">Haftungsausschluss</h2>
+          <div class="space-y-2">
+            <p>Die Inhalte wurden mit gr&ouml;&szlig;ter Sorgfalt erstellt. F&uuml;r Richtigkeit, Vollst&auml;ndigkeit und Aktualit&auml;t kann keine Gew&auml;hr &uuml;bernommen werden.</p>
+            <p>ArchPlanner wird ohne jegliche Gew&auml;hrleistung (&bdquo;as is&ldquo;) bereitgestellt. N&auml;heres in den <a href="agb.html" class="text-accent hover:underline">Nutzungsbedingungen</a>.</p>
+          </div>
+        </div>
+        <div class="pt-4">
+          <a href="datenschutz.html"
+            class="inline-flex items-center gap-2 text-accent hover:underline font-medium">
+            <svg class="icon w-4 h-4" viewBox="0 0 24 24">
+              <use href="#i-file" />
+            </svg>
+            Datenschutzerklaerung
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10 py-8 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-faint">
+      <span>&copy; 2025 ArchPlanner. Open Source unter MIT-Lizenz.</span>
+      <span>Designed und entwickelt in Deutschland.</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
