@@ -24,8 +24,28 @@ jobs:
       - name: Abhängigkeiten installieren
         run: npm ci
 
+      - name: reports/ Verzeichnis anlegen
+        run: mkdir -p reports
+
       - name: Regression Tests ausführen
-        run: npm test -- --ci --reporters=default
+        run: npm run test:ci
+
+      - name: Test-Report als GitHub Actions Summary veröffentlichen
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: 'Jest Regression Report'
+          path: 'reports/jest-junit.xml'
+          reporter: 'jest-junit'
+          fail-on-error: false
+
+      - name: Test-Artefakt hochladen (JUnit XML)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jest-regression-report
+          path: reports/jest-junit.xml
+          retention-days: 30
 
   html-lint:
     name: HTML Validierung (HTMLHint)
@@ -40,5 +60,32 @@ jobs:
         with:
           node-version: '20'
 
-      - name: HTMLHint ausführen
-        run: npx htmlhint@latest "*.html"
+      - name: reports/ Verzeichnis anlegen
+        run: mkdir -p reports
+
+      - name: HTMLHint ausführen (mit Report)
+        run: |
+          npx htmlhint@latest "*.html" --format=json > reports/htmlhint-report.json 2>&1 || true
+          npx htmlhint@latest "*.html"
+
+      - name: HTMLHint Summary in GitHub Actions schreiben
+        if: always()
+        run: |
+          echo '## HTMLHint Validierung' >> $GITHUB_STEP_SUMMARY
+          if [ -f reports/htmlhint-report.json ]; then
+            ERRORS=$(cat reports/htmlhint-report.json | python3 -c "
+import json,sys
+data=json.load(sys.stdin)
+total=sum(len(f.get('messages',[])) for f in data)
+print(f'{total} Probleme gefunden' if total>0 else '✅ Keine Probleme gefunden')
+")
+            echo "$ERRORS" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: HTMLHint-Artefakt hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlhint-report
+          path: reports/htmlhint-report.json
+          retention-days: 30

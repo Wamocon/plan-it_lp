@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "lint:html": "htmlhint \"*.html\"",
     "check": "npm test && npm run lint:html"
   },
@@ -11,8 +12,16 @@
     "testEnvironment": "node",
     "testMatch": ["**/tests/**/*.test.js"]
   },
+  "jest-junit": {
+    "outputDirectory": "reports",
+    "outputName": "jest-junit.xml",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › "
+  },
   "devDependencies": {
     "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "htmlhint": "^1.1.4"
   }
 }
