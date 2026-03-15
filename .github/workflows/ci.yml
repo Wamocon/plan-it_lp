@@ -27,6 +27,9 @@ jobs:
       - name: reports/ Verzeichnis anlegen
         run: mkdir -p reports
 
+      - name: jest-junit für CI-Reporting installieren
+        run: npm install jest-junit --no-save
+
       - name: Regression Tests ausführen
         run: npm run test:ci
 
