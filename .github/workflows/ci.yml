@@ -1,0 +1,44 @@
+name: CI – Regression & Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  regression-tests:
+    name: Regression Tests (Jest)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Regression Tests ausführen
+        run: npm test -- --ci --reporters=default
+
+  html-lint:
+    name: HTML Validierung (HTMLHint)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: HTMLHint ausführen
+        run: npx htmlhint@latest "*.html"
