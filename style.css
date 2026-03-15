@@ -1,14 +1,7 @@
 ﻿/* ArchPlanner — Minimal custom CSS (Tailwind v4 handles everything else) */
 
-/* Hide scrollbar completely while keeping scroll functionality */
 html {
   font-size: 17px;       /* Bump base up from 16px — scales all rem-based text */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-html::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
 }
 
 /* ── Back button ── */
