@@ -46,14 +46,20 @@ jobs:
           JEST_HTML_REPORTER_PAGE_TITLE: ArchPlanner Regression Tests
           JEST_HTML_REPORTER_INCLUDE_FAILURE_MSG: true
 
-      - name: Test-Report als GitHub Actions Summary veröffentlichen
+      - name: Test-Report in GitHub Actions Summary schreiben
         if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: 'Jest Regression Report'
-          path: 'reports/jest-junit.xml'
-          reporter: 'jest-junit'
-          fail-on-error: false
+        run: |
+          echo '## Regression Tests' >> $GITHUB_STEP_SUMMARY
+          node -e "
+          const fs = require('fs');
+          const xml = fs.readFileSync('reports/jest-junit.xml', 'utf8');
+          const tests = (xml.match(/tests=\"(\d+)\"/)?.[1]) || '?';
+          const failures = (xml.match(/failures=\"(\d+)\"/)?.[1]) || '0';
+          const errors = (xml.match(/errors=\"(\d+)\"/)?.[1]) || '0';
+          const failed = parseInt(failures) + parseInt(errors);
+          const icon = failed === 0 ? '✅' : '❌';
+          console.log(icon + ' ' + tests + ' Tests, ' + failed + ' fehlgeschlagen');
+          " >> $GITHUB_STEP_SUMMARY
 
       - name: Test-Artefakt hochladen (JUnit XML + HTML)
         if: always()
@@ -101,15 +107,7 @@ jobs:
         if: always()
         run: |
           echo '## HTMLHint Validierung' >> $GITHUB_STEP_SUMMARY
-          python3 -c "
-import json, sys
-try:
-    d = json.load(open('reports/htmlhint-report.json'))
-    count = sum(len(f.get('messages', [])) for f in d) if isinstance(d, list) else 0
-    print('✅ Keine Probleme gefunden' if count == 0 else f'❌ {count} Probleme gefunden')
-except Exception:
-    print('✅ Keine Probleme gefunden')
-" >> $GITHUB_STEP_SUMMARY
+          python3 scripts/htmlhint_summary.py >> $GITHUB_STEP_SUMMARY
 
       - name: HTMLHint-Artefakt hochladen
         if: always()
