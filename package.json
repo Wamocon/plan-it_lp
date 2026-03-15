@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "python -m http.server 8080",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit --reporters=jest-html-reporter",
     "lint:html": "htmlhint \"*.html\"",
