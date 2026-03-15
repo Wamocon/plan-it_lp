@@ -1,0 +1,9 @@
+{
+  "tagname-lowercase": true,
+  "attr-value-double-quotes": true,
+  "id-unique": true,
+  "src-not-empty": true,
+  "title-require": true,
+  "attr-no-duplication": true,
+  "doctype-first": true
+}

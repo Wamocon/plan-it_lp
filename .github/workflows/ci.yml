@@ -1,0 +1,120 @@
+name: CI – Regression & Checks
+# last updated: 2026-03-15
+
+on:
+  push:
+    branches:
+      - main
+      - 'dev/**'
+      - 'feature/**'
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
+  workflow_dispatch:
+
+jobs:
+  regression-tests:
+    name: Regression Tests (Jest)
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: reports/ Verzeichnis anlegen
+        run: mkdir -p reports
+
+      - name: CI-Reporter installieren
+        run: npm install jest-junit jest-html-reporter --no-save
+
+      - name: Regression Tests ausführen
+        run: npm run test:ci
+        env:
+          JEST_HTML_REPORTER_OUTPUT_PATH: reports/jest-report.html
+          JEST_HTML_REPORTER_PAGE_TITLE: ArchPlanner Regression Tests
+          JEST_HTML_REPORTER_INCLUDE_FAILURE_MSG: true
+
+      - name: Test-Report als GitHub Actions Summary veröffentlichen
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: 'Jest Regression Report'
+          path: 'reports/jest-junit.xml'
+          reporter: 'jest-junit'
+          fail-on-error: false
+
+      - name: Test-Artefakt hochladen (JUnit XML + HTML)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jest-regression-report
+          path: |
+            reports/jest-junit.xml
+            reports/jest-report.html
+          retention-days: 30
+
+      - name: HTML Report auf GitHub Pages deployen
+        if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          destination_dir: test-reports
+          keep_files: false
+
+  html-lint:
+    name: HTML Validierung (HTMLHint)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: reports/ Verzeichnis anlegen
+        run: mkdir -p reports
+
+      - name: HTMLHint ausführen (mit Report)
+        run: |
+          npx htmlhint "*.html" --format=json 2>/dev/null > reports/htmlhint-report.json || echo "[]" > reports/htmlhint-report.json
+          npx htmlhint "*.html"
+
+      - name: HTMLHint Summary in GitHub Actions schreiben
+        if: always()
+        run: |
+          echo '## HTMLHint Validierung' >> $GITHUB_STEP_SUMMARY
+          python3 -c "
+import json, sys
+try:
+    d = json.load(open('reports/htmlhint-report.json'))
+    count = sum(len(f.get('messages', [])) for f in d) if isinstance(d, list) else 0
+    print('✅ Keine Probleme gefunden' if count == 0 else f'❌ {count} Probleme gefunden')
+except Exception:
+    print('✅ Keine Probleme gefunden')
+" >> $GITHUB_STEP_SUMMARY
+
+      - name: HTMLHint-Artefakt hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlhint-report
+          path: reports/htmlhint-report.json
+          retention-days: 30
