@@ -16,6 +16,9 @@ jobs:
   regression-tests:
     name: Regression Tests (Jest)
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
 
     steps:
       - name: Checkout
@@ -33,11 +36,15 @@ jobs:
       - name: reports/ Verzeichnis anlegen
         run: mkdir -p reports
 
-      - name: jest-junit für CI-Reporting installieren
-        run: npm install jest-junit --no-save
+      - name: CI-Reporter installieren
+        run: npm install jest-junit jest-html-reporter --no-save
 
       - name: Regression Tests ausführen
         run: npm run test:ci
+        env:
+          JEST_HTML_REPORTER_OUTPUT_PATH: reports/jest-report.html
+          JEST_HTML_REPORTER_PAGE_TITLE: ArchPlanner Regression Tests
+          JEST_HTML_REPORTER_INCLUDE_FAILURE_MSG: true
 
       - name: Test-Report als GitHub Actions Summary veröffentlichen
         if: always()
@@ -48,17 +55,30 @@ jobs:
           reporter: 'jest-junit'
           fail-on-error: false
 
-      - name: Test-Artefakt hochladen (JUnit XML)
+      - name: Test-Artefakt hochladen (JUnit XML + HTML)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: jest-regression-report
-          path: reports/jest-junit.xml
+          path: |
+            reports/jest-junit.xml
+            reports/jest-report.html
           retention-days: 30
+
+      - name: HTML Report auf GitHub Pages deployen
+        if: always() && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          destination_dir: test-reports
+          keep_files: false
 
   html-lint:
     name: HTML Validierung (HTMLHint)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -74,8 +94,8 @@ jobs:
 
       - name: HTMLHint ausführen (mit Report)
         run: |
-          npx htmlhint@latest "*.html" --format=json > reports/htmlhint-report.json 2>&1 || true
-          npx htmlhint@latest "*.html"
+          npx htmlhint "*.html" --format=json > reports/htmlhint-report.json 2>&1 || true
+          npx htmlhint "*.html"
 
       - name: HTMLHint Summary in GitHub Actions schreiben
         if: always()
