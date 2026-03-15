@@ -82,13 +82,12 @@ jobs:
         run: |
           echo '## HTMLHint Validierung' >> $GITHUB_STEP_SUMMARY
           if [ -f reports/htmlhint-report.json ]; then
-            ERRORS=$(cat reports/htmlhint-report.json | python3 -c "
-import json,sys
-data=json.load(sys.stdin)
-total=sum(len(f.get('messages',[])) for f in data)
-print(f'{total} Probleme gefunden' if total>0 else '✅ Keine Probleme gefunden')
-")
-            echo "$ERRORS" >> $GITHUB_STEP_SUMMARY
+            COUNT=$(python3 -c "import json,sys; d=json.load(open('reports/htmlhint-report.json')); print(sum(len(f.get('messages',[])) for f in d))")
+            if [ "$COUNT" = "0" ]; then
+              echo '✅ Keine Probleme gefunden' >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ $COUNT Probleme gefunden" >> $GITHUB_STEP_SUMMARY
+            fi
           fi
 
       - name: HTMLHint-Artefakt hochladen
