@@ -101,15 +101,7 @@ jobs:
         if: always()
         run: |
           echo '## HTMLHint Validierung' >> $GITHUB_STEP_SUMMARY
-          python3 -c "
-import json, sys
-try:
-    d = json.load(open('reports/htmlhint-report.json'))
-    count = sum(len(f.get('messages', [])) for f in d) if isinstance(d, list) else 0
-    print('✅ Keine Probleme gefunden' if count == 0 else f'❌ {count} Probleme gefunden')
-except Exception:
-    print('✅ Keine Probleme gefunden')
-" >> $GITHUB_STEP_SUMMARY
+          python3 scripts/htmlhint_summary.py >> $GITHUB_STEP_SUMMARY
 
       - name: HTMLHint-Artefakt hochladen
         if: always()
