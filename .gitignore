@@ -1,2 +1,5 @@
 *.local
 node_modules/
+
+# Persönliches Präsentationsskript – nicht pushen
+PRAESENTATION_SKRIPT.md
