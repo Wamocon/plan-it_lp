@@ -1,5 +1,5 @@
 ﻿/* ==============================================
-   ArchPlanner Landing Page : Immersive Interactions v3
+   plan-IT Landing Page : Immersive Interactions v3
    Vanilla JS, no dependencies
    ============================================== */
 

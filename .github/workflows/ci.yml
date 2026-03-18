@@ -1,4 +1,4 @@
-name: CI – Regression & Checks
+﻿name: CI – Regression & Checks
 # last updated: 2026-03-15
 
 on:
@@ -43,7 +43,7 @@ jobs:
         run: npm run test:ci
         env:
           JEST_HTML_REPORTER_OUTPUT_PATH: reports/jest-report.html
-          JEST_HTML_REPORTER_PAGE_TITLE: ArchPlanner Regression Tests
+          JEST_HTML_REPORTER_PAGE_TITLE: plan-IT Regression Tests
           JEST_HTML_REPORTER_INCLUDE_FAILURE_MSG: true
 
       - name: Test-Report in GitHub Actions Summary schreiben
