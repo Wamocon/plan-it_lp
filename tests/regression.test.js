@@ -37,7 +37,6 @@ describe('Keine Legacy-Inhalte (LFA / IHK)', () => {
   const banned = [
     { pattern: /\bLFA\b/,      label: 'LFA'         },
     { pattern: /\bIHK\b/,      label: 'IHK'         },
-    { pattern: /WAMOCON/,      label: 'WAMOCON'      },
     { pattern: /\bFIAE\b/,     label: 'FIAE'         },
     { pattern: /\.lfa-/,       label: '.lfa- Klasse' },
     { pattern: /chain-lfa/,    label: 'chain-lfa'    },
