@@ -9,7 +9,7 @@ on:
     - cron: '0 4 * * 1'
 
 jobs:
-  analyze:
+  analyze-js:
     name: Analyze (javascript-typescript)
     runs-on: ubuntu-latest
     permissions:
@@ -34,3 +34,30 @@ jobs:
         uses: github/codeql-action/analyze@v3
         with:
           category: '/language:javascript-typescript'
+
+  analyze-python:
+    # Verhindert, dass GitHub Default-Setup Python separat analysiert.
+    # continue-on-error: true, da das Projekt nur ein einzelnes Hilfs-Script
+    # in Python enthält und keine vollständige Python-Datenbank erstellt werden kann.
+    name: Analyze (python)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: CodeQL initialisieren
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+          queries: security-and-quality
+
+      - name: CodeQL-Analyse ausführen
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: '/language:python'
