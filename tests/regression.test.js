@@ -1,4 +1,4 @@
-﻿/**
+/**
  * plan-IT Architekturplaner (WAMOCON) — Regression Tests
  *
  * Zweck: Sicherstellen, dass kritische Inhalte, Strukturen und Links
