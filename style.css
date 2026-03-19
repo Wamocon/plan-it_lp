@@ -1,7 +1,11 @@
 /* plan-IT — Minimal custom CSS (Tailwind v4 handles everything else) */
 
 html {
-  font-size: 17px;       /* Bump base up from 16px — scales all rem-based text */
+  font-size: 16px;       /* Mobile-first: standard base; scaled up for larger screens */
+  scroll-padding-top: 112px; /* offset for fixed ticker (48px) + nav (64px) */
+}
+@media (min-width: 640px) {
+  html { font-size: 17px; } /* Bump up from 16px for sm+ screens */
 }
 
 /* ── Back button ── */
