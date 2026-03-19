@@ -988,9 +988,9 @@
         </div>
 
         <!-- Video (wird eingeblendet sobald intro.mp4 bereit ist) -->
-        <video autoplay muted loop playsinline
+        <video controls playsinline
           oncanplay="this.style.display='block';document.getElementById('founder-video-placeholder').style.display='none';"
-          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:1;">
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;z-index:1;background:#0d0d12;">
           <source src="intro.mp4" type="video/mp4">
         </video>
       </div>
@@ -2219,7 +2219,7 @@
   <div class="divider-gradient" style="background:linear-gradient(to bottom,#060e1b,var(--color-bg));"></div>
 
   <!-- LIVE DEMO -->
-  <section class="py-24 md:py-32" id="live-demo">
+  <section class="py-24 md:py-32" id="live-demo" style="display:none;">
     <div class="max-w-[1100px] mx-auto px-5 md:px-10">
       <div class="text-center mb-12">
         <span class="reveal inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-5" style="color:var(--color-accent);background:rgba(255,26,26,.08);border:1px solid rgba(255,26,26,.15);">Live Demo</span>
@@ -2244,7 +2244,7 @@
           </div>
           <!-- Video: &uuml;berdeckt Platzhalter sobald demo.mp4 geladen ist -->
           <video autoplay muted loop playsinline
-            oncanplay="this.style.display='block'"
+            oncanplay="this.style.display='block';document.getElementById('live-demo').style.display='';"
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:1;">
             <source src="demo.mp4" type="video/mp4">
           </video>
