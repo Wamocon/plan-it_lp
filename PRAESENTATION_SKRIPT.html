@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Präsentationsskript – plan-IT Landing Page</title>
+  <style>
+    /* ── WMC Brand Tokens ──────────────────────────────────────────────────── */
+    :root {
+      --wmc-navy:    #0E2841;   /* dk2 – Header, Footer */
+      --wmc-teal:    #156082;   /* accent1 – Überschriften, Akzente */
+      --wmc-orange:  #E97132;   /* accent2 – Badges, Highlights */
+      --wmc-ltblue:  #0F9ED5;   /* accent4 – optionale Info-Farbe */
+      --wmc-grey:    #E8E8E8;   /* lt2 – Trennlinien, Hintergründe */
+      --wmc-text:    #1a1a1a;
+      --wmc-white:   #FFFFFF;
+      --ff-head: 'Aptos Display', 'Segoe UI', Arial, sans-serif;
+      --ff-body: 'Aptos', 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Page Shell ─────────────────────────────────────────────────────────── */
+    body {
+      font-family: var(--ff-body);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--wmc-text);
+      background: #d6dde6;
+    }
+
+    .page-wrap {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--wmc-white);
+      box-shadow: 0 4px 24px rgba(14,40,65,.18);
+    }
+
+    /* ── Header Bar ─────────────────────────────────────────────────────────── */
+    .doc-header {
+      background: var(--wmc-navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 2.5rem;
+      gap: 1rem;
+    }
+
+    .doc-header img.logo {
+      height: 38px;
+      object-fit: contain;
+      filter: brightness(0) invert(1); /* Logo weiß auf dunkel */
+    }
+
+    .doc-header .header-right {
+      text-align: right;
+      color: rgba(255,255,255,.75);
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      letter-spacing: .03em;
+      line-height: 1.4;
+    }
+
+    .doc-header .header-right strong {
+      display: block;
+      color: var(--wmc-white);
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    /* ── Teal Accent Line ───────────────────────────────────────────────────── */
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--wmc-teal) 60%, var(--wmc-orange) 100%);
+    }
+
+    /* ── Content Area ────────────────────────────────────────────────────────── */
+    .content {
+      padding: 2.8rem 3rem 2rem 3rem;
+    }
+
+    /* ── Document Title ──────────────────────────────────────────────────────── */
+    .doc-title {
+      font-family: var(--ff-head);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--wmc-navy);
+      line-height: 1.25;
+      margin-bottom: .4rem;
+    }
+
+    .doc-subtitle {
+      font-size: .9rem;
+      color: #5a6a7a;
+      margin-bottom: 1.6rem;
+    }
+
+    .meta-box {
+      background: #f0f5fa;
+      border-left: 4px solid var(--wmc-teal);
+      padding: .75rem 1.1rem;
+      font-size: .88rem;
+      color: #3a4a5a;
+      margin-bottom: 2.2rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .meta-box em { color: var(--wmc-teal); font-style: normal; font-weight: 600; }
+
+    /* ── Section ─────────────────────────────────────────────────────────────── */
+    section {
+      margin-bottom: 2.2rem;
+      page-break-inside: avoid;
+    }
+
+    /* ── Chapter Heading ─────────────────────────────────────────────────────── */
+    h2 {
+      font-family: var(--ff-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--wmc-white);
+      background: var(--wmc-teal);
+      padding: .48rem 1rem .48rem 1rem;
+      margin-bottom: .9rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    h2 .chapter-num {
+      background: var(--wmc-navy);
+      color: var(--wmc-white);
+      font-family: var(--ff-head);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .15rem .55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    h2 .duration {
+      margin-left: auto;
+      font-weight: 400;
+      font-size: .8rem;
+      color: rgba(255,255,255,.7);
+      white-space: nowrap;
+    }
+
+    /* ── Stage Direction ──────────────────────────────────────────────────────── */
+    .stage-direction {
+      font-style: italic;
+      color: #55697a;
+      background: #f4f7fa;
+      border-left: 3px solid var(--wmc-ltblue);
+      padding: .38rem .85rem;
+      margin: .5rem 0 .7rem 0;
+      font-size: .88rem;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .stage-direction::before { content: '▶ '; font-style: normal; font-size: .75rem; color: var(--wmc-ltblue); }
+
+    /* ── Speech Box ──────────────────────────────────────────────────────────── */
+    .speech {
+      background: #fafbfc;
+      border: 1px solid var(--wmc-grey);
+      border-left: 4px solid var(--wmc-orange);
+      padding: .9rem 1.1rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .speech p { margin-bottom: .55rem; }
+    .speech p:last-child { margin-bottom: 0; }
+
+    /* ── Lists ───────────────────────────────────────────────────────────────── */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: .35rem 0 .55rem 0;
+    }
+
+    li {
+      margin-bottom: .3rem;
+      padding-left: .25rem;
+    }
+
+    ul li::marker { color: var(--wmc-teal); }
+    ol li::marker { color: var(--wmc-teal); font-weight: 700; }
+
+    /* ── Bold ────────────────────────────────────────────────────────────────── */
+    strong { color: var(--wmc-navy); }
+
+    /* ── Divider ─────────────────────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--wmc-grey);
+      margin: 1.8rem 0;
+    }
+
+    /* ── Footer Bar ──────────────────────────────────────────────────────────── */
+    .doc-footer {
+      background: var(--wmc-navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .65rem 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .doc-footer span {
+      font-family: var(--ff-head);
+      font-size: .77rem;
+      color: rgba(255,255,255,.65);
+    }
+
+    .doc-footer span.brand {
+      color: var(--wmc-white);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    /* ── Print ───────────────────────────────────────────────────────────────── */
+    @media print {
+      body { background: #fff; }
+      .page-wrap { box-shadow: none; margin: 0; max-width: 100%; }
+      .content { padding: 1.5cm 2cm; }
+      h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .doc-header, .doc-footer, .accent-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ── WMC Header ──────────────────────────────────────────────────────── -->
+  <header class="doc-header">
+    <img class="logo" src="wmc_logo.png" alt="WAMOCON Logo" />
+    <div class="header-right">
+      <strong>plan-IT &ndash; Präsentationsskript</strong>
+      Landing Page &middot; 19. März 2026
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- ── Content ─────────────────────────────────────────────────────────── -->
+  <div class="content">
+
+    <h1 class="doc-title">Präsentationsskript</h1>
+    <p class="doc-subtitle">plan-IT Landing Page &ndash; WAMOCON</p>
+
+    <div class="meta-box">
+      Dieses Skript folgt der Landing Page von oben nach unten.<br />
+      Abschnitte mit <em>▶</em> sind Regieanweisungen (scrollen, zeigen, klicken).<br />
+      <strong>Zieldauer: 15–20 Minuten</strong> (ohne Fragen)
+    </div>
+
+  <!-- 0 -->
+  <section>
+    <h2><span class="chapter-num">00</span> Eröffnung <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">bevor du den Bildschirm zeigst</div>
+    <div class="speech">
+      <p>„Hallo zusammen. Ich möchte euch heute <strong>plan-IT</strong> vorstellen –
+      den Architekturplaner von WAMOCON, den ich selbst entwickelt habe.
+      plan-IT steht für <strong>planen &amp; umsetzen</strong>: vom Ist-Zustand bis zum Jira-Ticket,
+      in unter fünf Minuten. Ich zeige euch kurz die Landing Page."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 1 -->
+  <section>
+    <h2><span class="chapter-num">01</span> Ticker &amp; Hero <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Seite öffnen. Kurz pausieren.</div>
+    <div class="speech">
+      <p>„Der rote Ticker oben fasst das gesamte Feature-Set zusammen:
+      Score, 5-Wellen-Plan, Jira-Integration, KI-Analyse, PDF/DOCX-Export.
+      Alles auf einen Blick.</p>
+      <p>Die Headline: <strong>'Architekt für deine Software-Landschaft.'</strong><br />
+      plan-IT übernimmt die Rolle eines Architekten:
+      erfasst den Ist-Zustand, bewertet ihn und zeigt,
+      wie es konkret besser wird – mit Jira-Integration, KI-Chat und Export.</p>
+      <p>Zwei Versprechen direkt darunter:</p>
+      <ul>
+        <li><strong>Next.js 16 · TypeScript · Appwrite</strong> – produktionsreifer Stack</li>
+        <li><strong>Jira · PDF &amp; DOCX</strong> – Ergebnisse direkt weiterverarbeiten</li>
+      </ul>
+      <p>"</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 2 -->
+  <section>
+    <h2><span class="chapter-num">02</span> Intro-Video: „Warum ich plan-IT gebaut habe" <span class="duration">~3 min inkl. Video</span></h2>
+    <div class="stage-direction">Scrollen zur Founder-Video-Sektion.</div>
+    <div class="speech">
+      <p>„Bevor wir in die Funktionen einsteigen, möchte ich kurz persönlich
+      erklären, warum ich dieses Tool gebaut habe.</p>
+      <div class="stage-direction">Video starten – Pause bis zum Ende.</div>
+      <p>Das war der Ausgangspunkt: ein echtes Problem aus der Praxis,
+      für das es kein passendes Tool gab. Deshalb habe ich plan-IT entwickelt."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 3 -->
+  <section>
+    <h2><span class="chapter-num">03</span> Das Problem <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Scrollen zur Problem-Sektion.</div>
+    <div class="speech">
+      <p>„Die Zahlen, die ihr hier seht, kennt jedes IT-Team:</p>
+      <ul>
+        <li><strong>66 % der IT-Projekte</strong> überziehen Budget/Zeitplan oder werden abgebrochen
+          <em>(Standish Group · CHAOS Report 2023)</em></li>
+        <li><strong>6× höhere Kosten</strong> für Bugfixes in Produktion vs. Planungsphase
+          <em>(IBM Systems Sciences Institute · NIST)</em></li>
+        <li><strong>33 % der Entwicklungszeit</strong> geht für technische Schulden &amp; Wartung verloren
+          <em>(Stripe · Developer Coefficient 2018)</em></li>
+      </ul>
+      <p>Kein Code-Sharing, Legacy-Systeme ohne Patches, kein Testing –
+      das ist kein Schicksal. Aber ohne strukturierten Überblick bleibt es
+      bei Ad-hoc-Entscheidungen, und die technische Schuld wächst still weiter."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 4 -->
+  <section>
+    <h2><span class="chapter-num">04</span> Die Lösung: plan-IT in 3 Säulen <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Scrollen zur Bridge-Sektion.</div>
+    <div class="speech">
+      <p>„<strong>'Vier Schritte. Eine KI-Analyse. Ein klarer Weg nach vorne.'</strong></p>
+      <p>Drei Säulen:</p>
+      <ol>
+        <li><strong>4-Schritte-Wizard</strong> – Grundlagen, Stack, Prozesse, Infrastruktur.
+          Vollständig erfasst in fünf Minuten.</li>
+        <li><strong>KI-Analyse</strong> – Gemini oder OpenAI bewertet den Ist-Zustand:
+          Score, priorisierte Risiken, konkrete Handlungsempfehlungen.
+          Optional: eigene KI-API-Keys direkt in der App hinterlegen.</li>
+        <li><strong>5-Wellen-Umsetzungsplan</strong> – automatisch generiert,
+          von Quick Wins bis zur vollständigen Transformation. Sofort präsentierbar."</li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 5 -->
+  <section>
+    <h2><span class="chapter-num">05</span> Roadmap: „Neun Gründe. Ein Tool." <span class="duration">~1,5 min</span></h2>
+    <div class="stage-direction">Scrollen zur Roadmap-Sektion.</div>
+    <div class="speech">
+      <p>„Neun konkrete Punkte unterscheiden plan-IT von einer Excel-Tabelle –
+      von der Analyse über die Risiko-Matrix bis zum automatisch generierten
+      Soll-Architektur-Vorschlag und dem 5-Wellen-Plan.
+      Alles in einem Tool, alles in einem Durchlauf."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 6 -->
+  <section>
+    <h2><span class="chapter-num">06</span> Analyse-Modus: Regelbasiert oder KI? <span class="duration">~1,5 min</span></h2>
+    <div class="stage-direction">Scrollen zur Analyse-Modus-Sektion (heller Hintergrund).</div>
+    <div class="speech">
+      <p>„plan-IT bietet zwei Modi:</p>
+      <p><strong>Regel-basierte Analyse</strong> – strukturiertes If-Then-Regelwerk erkennt
+      gängige Muster wie Copy-Paste, fehlende Tests oder EOL-Systeme.
+      Sofort einsatzbereit.</p>
+      <p><strong>KI-Analyse</strong> – Google Gemini 2.0 Flash oder OpenAI GPT liefert
+      individuelle Empfehlungen, EOL-Checks und maßgeschneiderte Soll-Architektur.
+      API-Keys direkt in den Einstellungen verwalten.</p>
+      <p>Beide Modi liefern Score, Risiken, Soll-Architektur und 5-Wellen-Plan."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 7 -->
+  <section>
+    <h2><span class="chapter-num">07</span> Für wen ist plan-IT? <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">Scrollen zur Rollen-Sektion.</div>
+    <div class="speech">
+      <p>„plan-IT richtet sich an zwei Zielgruppen:</p>
+      <p><strong>CTOs &amp; Architekten:</strong> Architekturzustand in fünf Minuten statt tagelangen
+      Workshops. Datenbasierte Entscheidungen statt Bauchgefühl.</p>
+      <p><strong>Dev Leads:</strong> Klare Risiko-Priorisierung, direkter Jira-Push,
+      Umsetzungsplan für die Sprint-Planung."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 8 -->
+  <section>
+    <h2><span class="chapter-num">08</span> Funktionen im Überblick <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Scrollen zur Funktionen-Sektion (Bento-Grid).</div>
+    <div class="speech">
+      <p>„Neun Funktionen im Überblick:</p>
+      <p><strong>Score &amp; Analyse:</strong></p>
+      <ul>
+        <li>Architektur-Score 0–100 (Grün / Amber / Rot)</li>
+        <li>Priorisierte Risiko-Matrix: High / Medium / Low mit Empfehlung pro Risiko</li>
+        <li>Automatische Soll-Architektur – maßgeschneidert, kein generisches Template</li>
+      </ul>
+      <p><strong>Umsetzung:</strong></p>
+      <ul>
+        <li>5-Wellen-Plan mit Deliverables und Zeitschätzungen</li>
+        <li>Task-Tracker mit Jira-Integration – kein manuelles Abtippen</li>
+        <li>Score-Trend &amp; Snapshots – Fortschritt sichtbar machen</li>
+      </ul>
+      <p><strong>Kommunikation:</strong></p>
+      <ul>
+        <li>KI-Chat – Rückfragen im vollen Projektkontext</li>
+        <li>PDF &amp; Word-Export – direkt für das nächste Meeting</li>
+        <li>Projektvergleich – zwei Projekte Side-by-Side"</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 9 -->
+  <section>
+    <h2><span class="chapter-num">09</span> Vergleich: Ohne Tool vs. mit plan-IT <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">Scrollen zur Vergleichs-Sektion (heller Hintergrund).</div>
+    <div class="speech">
+      <p>„Diese Sektion macht den Zeitunterschied auf einen Blick deutlich:</p>
+      <p>Ohne Werkzeug dauert eine vollständige Architektur-Analyse <strong>Tage</strong>.
+      Mit plan-IT: <strong>5 Minuten</strong> – und das Ergebnis ist strukturierter,
+      vollständiger und direkt weiterverwendbar."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 10 -->
+  <section>
+    <h2><span class="chapter-num">10</span> Wizard: „4 Schritte. 1 vollständiger Architektur-Report." <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Scrollen zur Wizard-Sektion.</div>
+    <div class="speech">
+      <p>„So läuft plan-IT konkret ab – vier Schritte:</p>
+      <ul>
+        <li><strong>Grundlagen:</strong> Projektname, Teamgröße, App-Anzahl</li>
+        <li><strong>Tech Stack:</strong> Frameworks, Datenbanken, Legacy-Systeme</li>
+        <li><strong>Prozesse:</strong> CI/CD, Testing, Code-Sharing</li>
+        <li><strong>Infrastruktur:</strong> Monitoring, Branching, Onboarding</li>
+      </ul>
+      <p>Das ist alles. Danach: Score – Risiko-Matrix – Soll-Architektur – 5-Wellen-Plan.</p>
+      <p>KI-API-Keys optional – direkt in der App hinterlegen, kein .env-File nötig."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 11 -->
+  <section>
+    <h2><span class="chapter-num">11</span> Gemini &amp; OpenAI optional einbinden <span class="duration">~1,5 min</span></h2>
+    <div class="stage-direction">Scrollen zur Gemini/KI-Sektion (dunkler Hintergrund, blaue Akzente).</div>
+    <div class="speech">
+      <p>„Wer mehr Tiefe braucht, bindet eine KI ein.
+      Google Gemini 2.0 Flash oder OpenAI GPT – direkt in den Einstellungen,
+      mehrere Keys gleichzeitig verwaltbar.</p>
+      <p>Die Pipeline ist einfach:<br />
+      Wizard-Daten rein → KI-Analyse → Score, Risiken, Plan raus.</p>
+      <p>Das Ergebnis: individuelle Empfehlungen statt generischer Best-Practice-Texte."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 12 -->
+  <section>
+    <h2><span class="chapter-num">12</span> Live Demo <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">Scrollen zur Live-Demo-Sektion.</div>
+    <div class="speech">
+      <p>„Hier kann man plan-IT direkt in der echten App erleben:
+      <strong>https://archplanner.vercel.app/</strong></p>
+      <p>Wizard ausfüllen, Score erhalten, 5-Wellen-Plan ansehen –
+      kein Account erforderlich, Ergebnisse sofort sichtbar."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 13 -->
+  <section>
+    <h2><span class="chapter-num">13</span> ROI: „Was schlechte Architektur wirklich kostet" <span class="duration">~1,5 min</span></h2>
+    <div class="stage-direction">Scrollen zur ROI-Sektion (heller Hintergrund).</div>
+    <div class="speech">
+      <p>„Dieser Abschnitt zeigt, warum Architecture Reviews kein Luxus sind:</p>
+      <ul>
+        <li><strong>33 % der Entwicklungszeit</strong> geht für technische Schulden verloren
+          <em>(Stripe · Developer Coefficient 2018)</em>.</li>
+        <li><strong>6× höhere Kosten</strong> für Bugfixes in Produktion
+          <em>(IBM Systems Sciences Institute · NIST)</em>.</li>
+        <li>Unternehmen mit hohem Tech Debt geben <strong>bis zu 40 % mehr</strong> für Entwicklung
+          aus und brauchen <strong>50 % länger</strong> bei Releases
+          <em>(McKinsey Digital · 2022 – Demystifying Digital Dark Matter)</em>.</li>
+      </ul>
+      <p>Das bedeutet: Wer jetzt nicht plant, zahlt später deutlich mehr."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 14 -->
+  <section>
+    <h2><span class="chapter-num">14</span> Testimonials <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">Scrollen zur Testimonials-Sektion.</div>
+    <div class="speech">
+      <p>„Hier sprechen Architekten und Dev Leads, die plan-IT im echten
+      Projekteinsatz nutzen – konkrete Erfahrungen, keine Marketing-Texte."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 15 -->
+  <section>
+    <h2><span class="chapter-num">15</span> Ausblick: „Was als nächstes kommt" <span class="duration">~2 min</span></h2>
+    <div class="stage-direction">Scrollen zur Ausblick-Sektion.</div>
+    <div class="speech">
+      <p>„plan-IT ist der Startpunkt – hier seht ihr, was als nächstes auf der Roadmap steht:</p>
+      <p><strong>Kern – hohe Priorität:</strong></p>
+      <ul>
+        <li><strong>Rollen-Konzept</strong> – Admin, Architekt und Viewer mit klaren Rechten,
+          damit Teams gemeinsam an Projekten arbeiten können.</li>
+        <li><strong>Organisations-Modul</strong> – Unternehmen als Einheit: mehrere Teams,
+          Projekte und Mitglieder unter einem Dach.</li>
+        <li><strong>Aufgabensteuerung ausbauen</strong> – Zuweisungen, Deadlines,
+          Task-Abhängigkeiten direkt in plan-IT statt nur in Jira.</li>
+        <li><strong>Regel-basierte Analyse ausbauen</strong> – Security-Checks, Compliance-Regeln
+          und benutzerdefinierte Regelwerke.</li>
+      </ul>
+      <p><strong>Weiterer Ausbau:</strong></p>
+      <ul>
+        <li>EOL-Kalender – Erinnerung bei End-of-Life-Daten erkannter Technologien</li>
+        <li>Branchen-Benchmarks – eigener Score im Vergleich zu ähnlichen Stacks</li>
+        <li>Audit-Log – vollständige, Compliance-gerechte Änderungshistorie</li>
+        <li>In-App-Benachrichtigungen – Score-Verschlechterung, fällige Aufgaben,
+          EOL-Hinweise direkt in der App</li>
+        <li>MS Teams Nachrichten – Analyse-Zusammenfassungen aus plan-IT heraus
+          in einen Teams-Kanal schicken</li>
+      </ul>
+      <p>Die höchste Priorität liegt auf dem Rollen-Konzept und dem Organisations-Modul –
+      beides macht plan-IT echten Teams zugänglich."</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- 16 -->
+  <section>
+    <h2><span class="chapter-num">16</span> Abschluss &amp; Fragen <span class="duration">~1 min</span></h2>
+    <div class="stage-direction">Scrollen zum Final-CTA, kurz zur Tech-Stack- und Über-das-Projekt-Sektion.</div>
+    <div class="speech">
+      <p>„Zusammengefasst:</p>
+      <ul>
+        <li>Das <strong>Problem</strong> ist real – schlechte Architektur kostet Zeit, Geld und Nerven.</li>
+        <li>Die <strong>Lösung</strong> ist strukturiert – 4 Schritte, KI-Analyse, Jira-Push, PDF-Export.</li>
+        <li>Der <strong>Ausblick</strong> zeigt: plan-IT wächst weiter – mit echten
+          Team-Funktionen und mehr Analyse-Tiefe.</li>
+      </ul>
+      <p><strong>Tech Stack:</strong> Next.js 16, TypeScript, React 18, Tailwind, Zustand,
+      Appwrite, Gemini 2.0 Flash / OpenAI, Jira REST API, jsPDF &amp; DOCX.</p>
+      <p><strong>Open Source</strong> – MIT-Lizenz – von WAMOCON.<br />
+      Der komplette Code ist transparent einsehbar.</p>
+      <p>Ich freue mich auf eure Fragen!"</p>
+    </div>
+  </section>
+
+  </div><!-- /content -->
+
+  <!-- ── WMC Footer ──────────────────────────────────────────────────────── -->
+  <footer class="doc-footer">
+    <span class="brand">WAMOCON &ndash; plan-IT</span>
+    <span>Ende des Skripts &nbsp;·&nbsp; Zieldauer: 15–20 Minuten</span>
+  </footer>
+
+</div><!-- /page-wrap -->
+</body>
+</html>
