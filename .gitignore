@@ -3,4 +3,6 @@ node_modules/
 
 # Persönliches Präsentationsskript – nicht pushen
 PRAESENTATION_SKRIPT.md
-*.mp4
+
+# Große Videos – nur demo.mp4 ausschließen (noch nicht vorhanden)
+demo.mp4

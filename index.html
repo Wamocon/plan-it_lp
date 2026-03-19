@@ -964,7 +964,7 @@
   </section>
 
   <!-- FOUNDER VIDEO -->
-  <section class="py-20 md:py-28" id="founder-video" style="background:#0f0f11;">
+  <section class="py-20 md:py-28" id="founder-video" style="background:#0f0f11;display:none;">
     <div class="max-w-[860px] mx-auto px-5 md:px-10">
       <div class="reveal text-center mb-10">
         <span class="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
@@ -989,7 +989,7 @@
 
         <!-- Video (wird eingeblendet sobald intro.mp4 bereit ist) -->
         <video controls playsinline
-          oncanplay="this.style.display='block';document.getElementById('founder-video-placeholder').style.display='none';"
+          oncanplay="this.style.display='block';document.getElementById('founder-video-placeholder').style.display='none';document.getElementById('founder-video').style.display='';"
           style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;z-index:1;background:#0d0d12;">
           <source src="intro.mp4" type="video/mp4">
         </video>
