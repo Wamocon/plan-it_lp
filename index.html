@@ -2190,7 +2190,9 @@
             <span style="font-size:.8rem;color:#3a3a42;">demo.mp4 &mdash; UI-Walkthrough (Platzhalter)</span>
           </div>
           <!-- Video: &uuml;berdeckt Platzhalter sobald demo.mp4 geladen ist -->
-          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;">
+          <video autoplay muted loop playsinline
+            oncanplay="this.style.display='block'"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:1;">
             <source src="demo.mp4" type="video/mp4">
           </video>
         </div>
