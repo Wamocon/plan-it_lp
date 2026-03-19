@@ -1,5 +1,5 @@
 /**
- * ArchPlanner Landing Page — Regression Tests
+ * plan-IT Architekturplaner (WAMOCON) — Regression Tests
  *
  * Zweck: Sicherstellen, dass kritische Inhalte, Strukturen und Links
  * nach jeder Änderung korrekt erhalten bleiben.
@@ -37,7 +37,6 @@ describe('Keine Legacy-Inhalte (LFA / IHK)', () => {
   const banned = [
     { pattern: /\bLFA\b/,      label: 'LFA'         },
     { pattern: /\bIHK\b/,      label: 'IHK'         },
-    { pattern: /WAMOCON/,      label: 'WAMOCON'      },
     { pattern: /\bFIAE\b/,     label: 'FIAE'         },
     { pattern: /\.lfa-/,       label: '.lfa- Klasse' },
     { pattern: /chain-lfa/,    label: 'chain-lfa'    },
@@ -82,8 +81,8 @@ describe('index.html: Navigation & Branding', () => {
     expect(html).toMatch(/src="logo\.svg"/);
   });
 
-  test('Markenname "ArchPlanner" vorhanden', () => {
-    expect(html).toContain('ArchPlanner');
+  test('Markenname "plan-IT" vorhanden', () => {
+    expect(html).toContain('plan-IT');
   });
 });
 
@@ -209,13 +208,13 @@ describe('SVG-Assets', () => {
 // ── 12. Rechtliche Seiten ───────────────────────────────────────────────────
 describe('Rechtliche Seiten: Grundstruktur', () => {
   test.each(['agb.html', 'datenschutz.html', 'impressum.html', 'cookies.html'])(
-    '%s hat gültige HTML-Struktur und enthält ArchPlanner',
+    '%s hat gültige HTML-Struktur und enthält plan-IT',
     (page) => {
       const content = read(page);
       expect(content.toLowerCase()).toContain('<!doctype html');
       expect(content.toLowerCase()).toContain('<html');
       expect(content.toLowerCase()).toContain('</html>');
-      expect(content).toContain('ArchPlanner');
+      expect(content).toContain('plan-IT');
     }
   );
 });

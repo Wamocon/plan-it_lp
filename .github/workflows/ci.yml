@@ -43,7 +43,7 @@ jobs:
         run: npm run test:ci
         env:
           JEST_HTML_REPORTER_OUTPUT_PATH: reports/jest-report.html
-          JEST_HTML_REPORTER_PAGE_TITLE: ArchPlanner Regression Tests
+          JEST_HTML_REPORTER_PAGE_TITLE: plan-IT Regression Tests
           JEST_HTML_REPORTER_INCLUDE_FAILURE_MSG: true
 
       - name: Test-Report in GitHub Actions Summary schreiben
@@ -52,7 +52,12 @@ jobs:
           echo '## Regression Tests' >> $GITHUB_STEP_SUMMARY
           node -e "
           const fs = require('fs');
-          const xml = fs.readFileSync('reports/jest-junit.xml', 'utf8');
+          const xmlPath = 'reports/jest-junit.xml';
+          if (!fs.existsSync(xmlPath)) {
+            console.log('⚠️ Jest-Report nicht gefunden – Tests wurden möglicherweise abgebrochen.');
+            process.exit(0);
+          }
+          const xml = fs.readFileSync(xmlPath, 'utf8');
           const tests = (xml.match(/tests=\"(\d+)\"/)?.[1]) || '?';
           const failures = (xml.match(/failures=\"(\d+)\"/)?.[1]) || '0';
           const errors = (xml.match(/errors=\"(\d+)\"/)?.[1]) || '0';
