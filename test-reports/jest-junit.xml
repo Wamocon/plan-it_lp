@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="90" failures="0" errors="0" time="0.295">
-  <testsuite name="Pflichtdateien" errors="0" failures="0" skipped="0" timestamp="2026-11-09T12:42:01" time="0.272" tests="90">
-    <testcase classname="Pflichtdateien" name="index.html ist vorhanden" time="0.002">
+<testsuites name="jest tests" tests="90" failures="0" errors="0" time="0.237">
+  <testsuite name="Pflichtdateien" errors="0" failures="0" skipped="0" timestamp="2026-11-09T12:42:08" time="0.22" tests="90">
+    <testcase classname="Pflichtdateien" name="index.html ist vorhanden" time="0.001">
     </testcase>
     <testcase classname="Pflichtdateien" name="style.css ist vorhanden" time="0">
     </testcase>
-    <testcase classname="Pflichtdateien" name="script.js ist vorhanden" time="0.001">
+    <testcase classname="Pflichtdateien" name="script.js ist vorhanden" time="0">
     </testcase>
     <testcase classname="Pflichtdateien" name="logo.svg ist vorhanden" time="0">
     </testcase>
@@ -19,7 +19,7 @@
     </testcase>
     <testcase classname="Pflichtdateien" name="cookies.html ist vorhanden" time="0">
     </testcase>
-    <testcase classname="Pflichtdateien" name=".gitignore ist vorhanden" time="0.001">
+    <testcase classname="Pflichtdateien" name=".gitignore ist vorhanden" time="0">
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="index.html: enthält kein &quot;LFA&quot;" time="0.001">
     </testcase>
@@ -31,7 +31,7 @@
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="index.html: enthält kein &quot;chain-lfa&quot;" time="0.001">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="index.html: enthält kein &quot;fiae-learn&quot;" time="0.001">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="index.html: enthält kein &quot;fiae-learn&quot;" time="0">
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="index.html: enthält kein &quot;Emoji &amp;#128208; (alter Platzhalter)&quot;" time="0.001">
     </testcase>
@@ -49,17 +49,17 @@
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="style.css: enthält kein &quot;Emoji &amp;#128208; (alter Platzhalter)&quot;" time="0">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;LFA&quot;" time="0.001">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;LFA&quot;" time="0">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;IHK&quot;" time="0">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;IHK&quot;" time="0.001">
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;FIAE&quot;" time="0">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;.lfa- Klasse&quot;" time="0.001">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;.lfa- Klasse&quot;" time="0">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;chain-lfa&quot;" time="0">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;chain-lfa&quot;" time="0.001">
     </testcase>
-    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;fiae-learn&quot;" time="0.001">
+    <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;fiae-learn&quot;" time="0">
     </testcase>
     <testcase classname="Keine Legacy-Inhalte (LFA / IHK)" name="script.js: enthält kein &quot;Emoji &amp;#128208; (alter Platzhalter)&quot;" time="0">
     </testcase>
@@ -73,7 +73,7 @@
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;rollen&quot; vorhanden" time="0">
     </testcase>
-    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;funktionen&quot; vorhanden" time="0">
+    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;funktionen&quot; vorhanden" time="0.001">
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;vergleich&quot; vorhanden" time="0">
     </testcase>
@@ -81,17 +81,17 @@
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;demo&quot; vorhanden" time="0">
     </testcase>
-    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;gemini&quot; vorhanden" time="0.001">
+    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;gemini&quot; vorhanden" time="0">
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;roi&quot; vorhanden" time="0">
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;testimonials&quot; vorhanden" time="0">
     </testcase>
-    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;architektur&quot; vorhanden" time="0">
+    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;architektur&quot; vorhanden" time="0.001">
     </testcase>
     <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;team&quot; vorhanden" time="0">
     </testcase>
-    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;cta-final&quot; vorhanden" time="0.001">
+    <testcase classname="index.html: Pflicht-Sektionen vorhanden" name="id=&quot;cta-final&quot; vorhanden" time="0">
     </testcase>
     <testcase classname="index.html: Navigation &amp; Branding" name="favicon.svg im &lt;head&gt; verlinkt" time="0">
     </testcase>
@@ -107,11 +107,11 @@
     </testcase>
     <testcase classname="index.html: Meta-Tags" name="og:title Open-Graph-Tag vorhanden" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-shield ist definiert" time="0">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-shield ist definiert" time="0.001">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-zap ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-check ist definiert" time="0.001">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-check ist definiert" time="0">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-bot ist definiert" time="0">
     </testcase>
@@ -123,9 +123,9 @@
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-edit ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-download ist definiert" time="0.001">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-download ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-tasks ist definiert" time="0">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-tasks ist definiert" time="0.001">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-trending ist definiert" time="0">
     </testcase>
@@ -137,7 +137,7 @@
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-chart ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-clock ist definiert" time="0.001">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-clock ist definiert" time="0">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-building ist definiert" time="0">
     </testcase>
@@ -147,11 +147,11 @@
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-calendar ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-compare ist definiert" time="0">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-compare ist definiert" time="0.001">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-lock ist definiert" time="0">
     </testcase>
-    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-book ist definiert" time="0.001">
+    <testcase classname="index.html: SVG-Sprite Symbole" name="Symbol #i-book ist definiert" time="0">
     </testcase>
     <testcase classname="index.html: SVG-Sprite Symbole" name="alle verwendeten &lt;use href=&quot;#i-...&quot;&gt; Symbole sind definiert" time="0">
     </testcase>
@@ -161,7 +161,7 @@
     </testcase>
     <testcase classname="index.html: Feature-Karten" name="mindestens 9 Feature-Karten im Grid" time="0">
     </testcase>
-    <testcase classname="index.html: Interne Anker-Links" name="alle href=&quot;#...&quot; Links verweisen auf existierende IDs" time="0">
+    <testcase classname="index.html: Interne Anker-Links" name="alle href=&quot;#...&quot; Links verweisen auf existierende IDs" time="0.001">
     </testcase>
     <testcase classname="Dateigröße (Regression gegen unkontrolliertes Wachstum)" name="index.html ist kleiner als 600 KB" time="0">
     </testcase>
@@ -171,11 +171,11 @@
     </testcase>
     <testcase classname="SVG-Assets" name="logo.svg ist gültiges SVG mit viewBox" time="0">
     </testcase>
-    <testcase classname="SVG-Assets" name="favicon.svg ist gültiges SVG" time="0.002">
+    <testcase classname="SVG-Assets" name="favicon.svg ist gültiges SVG" time="0.001">
     </testcase>
-    <testcase classname="Rechtliche Seiten: Grundstruktur" name="agb.html hat gültige HTML-Struktur und enthält plan-IT" time="0.001">
+    <testcase classname="Rechtliche Seiten: Grundstruktur" name="agb.html hat gültige HTML-Struktur und enthält plan-IT" time="0">
     </testcase>
-    <testcase classname="Rechtliche Seiten: Grundstruktur" name="datenschutz.html hat gültige HTML-Struktur und enthält plan-IT" time="0">
+    <testcase classname="Rechtliche Seiten: Grundstruktur" name="datenschutz.html hat gültige HTML-Struktur und enthält plan-IT" time="0.001">
     </testcase>
     <testcase classname="Rechtliche Seiten: Grundstruktur" name="impressum.html hat gültige HTML-Struktur und enthält plan-IT" time="0">
     </testcase>
